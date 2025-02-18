@@ -1,0 +1,5 @@
+- "When the app loads, no car image is displayed. The model dropdown displays \"Choose...\""
+- "Clicking on the model dropdown shows five possible values: Models S, 3, X, Y, and Cybertruck."
+- "Selecting a model enables the color dropdown with the colors available for that model. For instance, Cybertruck has three specific options: Stainless Steel, Satin Black, Satin White."
+- "Selecting a color displays the corresponding car image (right model and color) under the two dropdowns."
+- Changing the selection (model or color) updates the image accordingly.

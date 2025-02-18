@@ -1,0 +1,17 @@
+# Node artifacts
+/node_modules
+/dist
+
+# Logs and databases
+*.log
+*.sqlite
+.angular
+
+# IDEs and editors
+.idea/
+*.iml
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
