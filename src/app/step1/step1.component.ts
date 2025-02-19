@@ -1,5 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import { CarService } from '../services/car.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-step1',
@@ -11,5 +13,5 @@ import {ReactiveFormsModule} from '@angular/forms';
   styleUrl: './step1.component.scss'
 })
 export class Step1Component {
-
+  protected carModels = inject(CarService).getCarModels();
 }
