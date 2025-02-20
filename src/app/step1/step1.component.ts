@@ -13,5 +13,5 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './step1.component.scss'
 })
 export class Step1Component {
-  protected carModels = inject(CarService).getCarModels();
+  protected carService = inject(CarService);
 }
