@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ConfiguratorService } from '../configurator.service';
+import { CarService } from '../services/car.service';
 
 @Component({
   selector: 'app-step2',
@@ -8,5 +8,5 @@ import { ConfiguratorService } from '../configurator.service';
   styleUrl: './step2.component.scss'
 })
 export class Step2Component {
-  service = inject(ConfiguratorService);
+  service = inject(CarService);
 }

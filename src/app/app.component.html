@@ -1,10 +1,15 @@
 <div class="button-group">
-  <button routerLink="step1">Step 1</button>
-  <button routerLink="step2">
+  <button [routerLink]="['/step1']" routerLinkActive="router-link-active">
+    Step 1
+  </button>
+  <button [routerLink]="['/step2']" routerLinkActive="router-link-active">
     Step 2
   </button>
-  <button routerLink="step3">
-    Step 3
-  </button>
+  <button>Step 3</button>
 </div>
-<app-step1 />
+<router-outlet />
+<div>
+  @if (service.currentImage()) {
+  <img [src]="service.currentImage()" />
+  }
+</div>
