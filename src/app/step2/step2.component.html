@@ -1,19 +1,26 @@
 <h1>Step 2: Select your config and options</h1>
 Config:
-<select>
+<select #config (change)="service.selectConfig(config.value)">
   <option [value]="0">Choose...</option>
+  @for(config of service.selectableOptions()?.configs; track config.id) {
+  <option [value]="config.id">{{config.description}}</option>
+  }
 </select>
+@if( service.currentConfig(); as config) {
   <div>
-    Range: 100 miles
-    - Max speed: 200 mph
-    - Cost: $50,000
+    Range: {{config.range}} miles
+    - Max speed: {{config.speed}} mph
+    - Cost: {{config.price | currency}}
   </div>
+}
 
 <div>
-
+@if (service.selectableOptions()?.towHitch) {
   Tow hitch?
-  <input type="checkbox" />
+  <input type="checkbox" #hitch (change)="service.currentTowHitchIsSelected.set(hitch.checked)"/>
+}
   <br/>
-  Yoke steering wheel? <input type="checkbox" />
-
+@if (service.selectableOptions()?.yoke) {
+  Yoke steering wheel? <input type="checkbox" #yoke (change)="service.currentWheelIsYoke.set(yoke.checked)"/>
+}
 </div>
