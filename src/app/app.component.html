@@ -2,7 +2,7 @@
   <button [routerLink]="['/step1']" routerLinkActive="router-link-active">
     Step 1
   </button>
-  <button [routerLink]="['/step2']" routerLinkActive="router-link-active">
+  <button [routerLink]="['/step2']" routerLinkActive="router-link-active" [disabled]="! service.step2Ready()">
     Step 2
   </button>
   <button>Step 3</button>

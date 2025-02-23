@@ -1,4 +1,4 @@
-import { CarModel, CarOptions, Color } from './../models.type';
+import { CarModel, CarOptions, Color, Config } from './../models.type';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
 import { computed, effect, inject, Injectable, signal, Signal } from '@angular/core';
@@ -14,6 +14,9 @@ export class CarService {
     { initialValue: [] }
   );
 
+  readonly currentConfig = signal<Config | undefined>(undefined);
+  readonly currentWheelIsYoke = signal<boolean>(false);
+  readonly currentTowHitchIsSelected = signal<boolean>(false);
   readonly currentCar = signal<CarModel | undefined>(undefined);
   readonly currentColor = signal<Color | undefined>(undefined);
   readonly currentImage = computed(() => {
@@ -49,5 +52,10 @@ export class CarService {
   selectColor(code: Color['code']) {
     const color = this.selectableColors()?.find((color) => color.code === code);
     this.currentColor.set(color);
+  }
+
+  selectConfig(id: string) {
+    const config = this.selectableOptions()?.configs.find(c => c.id === +id);
+    this.currentConfig.set(config);
   }
 }
