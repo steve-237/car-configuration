@@ -31,6 +31,10 @@ export class CarService {
     () => this.currentCar() != undefined && this.currentColor() != undefined
   );
 
+  readonly step3Ready: Signal<boolean> = computed(
+    () => this.step2Ready() != undefined && this.currentConfig() != undefined
+  );
+
   constructor() {
     effect(() => {
       if (this.currentCar()?.code)
@@ -42,11 +46,21 @@ export class CarService {
 
   readonly selectableColors = computed(() => this.currentCar()?.colors);
   readonly selectableOptions = signal<CarOptions | null>(null);
+
+  readonly totalCost = computed(() => {
+    return (this.currentConfig()?.price ?? 0) +
+    (this.currentColor()?.price ?? 0) +
+    (this.currentTowHitchIsSelected() ? 1000 : 0) +
+    (this.currentWheelIsYoke() ? 1000 : 0);
+  })
    
   selectModel(code: CarModel['code']) {
     const model = this.allModels().find((model) => model.code === code);
     this.currentCar.set(model);
     this.currentColor.set(model?.colors[0]);
+    this.currentWheelIsYoke.set(false);
+    this.currentTowHitchIsSelected.set(false);
+    this.currentConfig.set(undefined);
   }
 
   selectColor(code: Color['code']) {

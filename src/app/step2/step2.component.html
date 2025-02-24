@@ -6,7 +6,7 @@ Config:
   <option [value]="config.id">{{config.description}}</option>
   }
 </select>
-@if( service.currentConfig(); as config) {
+@if(service.currentConfig(); as config) {
   <div>
     Range: {{config.range}} miles
     - Max speed: {{config.speed}} mph

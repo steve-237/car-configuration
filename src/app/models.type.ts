@@ -24,7 +24,6 @@ export interface Config {
   price:       number;
 }
 
-
 export interface SelectedConfig {
   car: CarModel;
   color: Color;

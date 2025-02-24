@@ -1,0 +1,52 @@
+<h1>Step 3: Summary</h1>
+<h3>{{ service.currentCar()?.description }}</h3>
+<div class="container">
+  @if(service.currentConfig(); as config) {
+  <div class="row">
+    <div class="col-sm-6">
+      <div>
+        <b>{{ config.description }}</b>
+      </div>
+      <div>Range: {{ config.range }} miles - Max speed: {{ config.speed }}</div>
+    </div>
+    <div class="col-sm-6">{{ config.price | currency }}</div>
+  </div>
+
+  @if(service.currentColor(); as color) {
+  <div class="row">
+    <div class="col-sm-6">
+      <b>{{ color.description }}</b>
+    </div>
+    <div class="col-sm-6">{{color.price | currency}}</div>
+  </div>
+  } 
+  
+  @if(service.currentWheelIsYoke()) {
+  <div class="row">
+    <div class="col-sm-6">
+      <b>Yoke Steering Wheel</b>
+    </div>
+    <div class="col-sm-6">{{'1000' | currency}}</div>
+  </div>
+  } 
+  
+  @if(service.currentTowHitchIsSelected()) {
+  <div class="row">
+    <div class="col-sm-6">
+      <b>Tow Hitch Package</b>
+    </div>
+    <div class="col-sm-6">{{'1000' | currency}}</div>
+  </div>
+  }
+
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-6">
+      <b>TOTAL COST</b>
+    </div>
+    <div class="col-sm-6">{{service.totalCost() | currency}}</div>
+  </div>
+  <hr />
+  }
+</div>
