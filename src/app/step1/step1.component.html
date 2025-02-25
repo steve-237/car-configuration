@@ -4,14 +4,14 @@ Model:
 <select #model (change)="carService.selectModel(model.value)">
   <option [value]="0">Choose...</option>
   @for(model of carService.allModels(); track model.code) {
-  <option [value]="model.code">{{ model.description }}</option>
+  <option [value]="model.code" [selected]="model.code === carService.currentCar()?.code">{{ model.description }}</option>
   }
 </select>
 
 @if(carService.currentCar()) { Color:
 <select #color (change)="carService.selectColor(color.value)">
   @for(color of carService.selectableColors(); track color.code) {
-  <option [value]="color.code">{{ color.description }}</option>
+  <option [value]="color.code" [selected]="color.code === carService.currentColor()?.code">{{ color.description }}</option>
   }
 </select>
 }
