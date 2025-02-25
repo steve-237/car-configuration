@@ -3,7 +3,7 @@ Config:
 <select #config (change)="service.selectConfig(config.value)">
   <option [value]="0">Choose...</option>
   @for(config of service.selectableOptions()?.configs; track config.id) {
-  <option [value]="config.id">{{config.description}}</option>
+  <option [value]="config.id" [selected]="config.id === service.currentConfig()?.id">{{config.description}}</option>
   }
 </select>
 @if(service.currentConfig(); as config) {
