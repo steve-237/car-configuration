@@ -1,25 +1,27 @@
-<div class="button-group">
-  <button [routerLink]="['/step1']" routerLinkActive="router-link-active">
-    Step 1
-  </button>
-  <button
-    [routerLink]="['step2']"
-    routerLinkActive="router-link-active"
-    [disabled]="!service.step2Ready()"
-  >
-    Step 2
-  </button>
-  <button
-    [routerLink]="['step3']"
-    routerLinkActive="router-link-active"
-    [disabled]="!service.step3Ready()"
-  >
-    Step 3
-  </button>
-</div>
-<router-outlet />
-<div>
-  @if (service.currentImage()) {
-  <img [src]="service.currentImage()" />
-  }
+<div class="container">
+  <div class="button-group">
+    <button [routerLink]="['/step1']" routerLinkActive="router-link-active">
+      Step 1
+    </button>
+    <button
+      [routerLink]="['step2']"
+      routerLinkActive="router-link-active"
+      [disabled]="!service.step2Ready()"
+    >
+      Step 2
+    </button>
+    <button
+      [routerLink]="['step3']"
+      routerLinkActive="router-link-active"
+      [disabled]="!service.step3Ready()"
+    >
+      Step 3
+    </button>
+  </div>
+  <router-outlet />
+  <div>
+    @if (service.currentImage()) {
+    <img [src]="service.currentImage()" />
+    }
+  </div>  
 </div>
